@@ -22,6 +22,15 @@ router.post('/', (req, res) => {
   .then(results=>{
     res.send(results[0])
   })
+});
+
+router.delete('/:id', (req, res) => {
+  queries.deleteOne(req.params.id)
+  .then(()=>{
+    res.json({
+      deleted: true
+    })
+  })
 })
 
 
